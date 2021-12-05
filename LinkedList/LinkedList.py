@@ -23,7 +23,7 @@ class LinkedList:
 
         temp = self.head
         while (temp):
-            print(temp.data,sep=' ')
+            print(temp.data, sep=' ')
             temp = temp.next
 
     def __len__(self):
@@ -54,14 +54,14 @@ class LinkedList:
         # Traverse through the linked list and insert the values
         temp = self.head
         while (temp):
-            line_top_bottom = line_top_bottom + BOX_OUTLINE # Outline of the box
+            line_top_bottom = line_top_bottom + BOX_OUTLINE  # Outline of the box
 
             if temp.next != None:
                 line_middle = line_middle + BOX_NOT_NULL.format(temp.data)
             else:
                 line_middle = line_middle + BOX_NULL.format(temp.data)
             temp = temp.next
-        
+
         # join everything in a single string
         output = ''
         output = line_top_bottom+'\n'+line_middle+'\n'+line_top_bottom
@@ -81,6 +81,50 @@ class LinkedList:
         # 4. Move the head to point to new Node
         self.head = new_node
 
+    # This function is in LinkedList class.
+    # Inserts a new node after the given prev_node. This method is
+    # defined inside LinkedList class shown above */
+    def insertAfter(self, prev_node, new_data):
+
+        # 1. check if the given prev_node exists
+        if prev_node is None:
+            print("The given previous node must in LinkedList.")
+            return
+
+        # 2. Create new node &
+        # 3. Put in the data
+        new_node = Node(new_data)
+
+        # 4. Make next of new Node as next of prev_node
+        new_node.next = prev_node.next
+
+        # 5. make next of prev_node as new_node
+        prev_node.next = new_node
+
+    # This function is defined in Linked List class
+    # Appends a new node at the end. This method is
+    # defined inside LinkedList class shown above */
+    def append(self, new_data):
+
+        # 1. Create a new node
+        # 2. Put in the data
+        # 3. Set next as None
+        new_node = Node(new_data)
+
+        # 4. If the Linked List is empty, then make the
+        # new node as head
+        if self.head is None:
+            self.head = new_node
+            return
+
+        # 5. Else traverse till the last node
+        last = self.head
+        while (last.next):
+            last = last.next
+
+        # 6. Change the next of last node
+        last.next = new_node
+
 
 # Code execution starts here
 if __name__ == '__main__':
@@ -95,9 +139,30 @@ if __name__ == '__main__':
     llist.head.next = second  # Link first node with second
     second.next = third  # Link second node with the third node
 
+    # # Insertion in the start
+    # print(llist)
+    # llist.push(5)
+    # print() # to space
+    # print('Inserting 5 to the start of the Linked List')
+    # print()
+    # print(llist)
+
+    # print()
+
+    # Insertion after a given node
     print(llist)
-    llist.push(5)
-    print() # to space
-    print('Inserting 5 to the start of the Linked List')
+    llist.insertAfter(second, 5)
+    print()  # to space
+    print('Inserting 5 after 2')
+    print()
+    print(llist)
+
+    print("="*75)
+
+    # Appending in the end
+    print(llist)
+    llist.append(5)
+    print()  # to space
+    print('Appending 5')
     print()
     print(llist)
