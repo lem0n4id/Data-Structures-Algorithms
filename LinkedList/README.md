@@ -98,13 +98,37 @@ As a result, some operations (such as modifying a certain element) are faster in
 2. Extra memory required for the pointer/reference to next node
 3. takes a lot of time in traversing and changing the pointers
 
+
+### Linked List operations
+
+- Insertion
+    - [Inserting a node](https://www.geeksforgeeks.org/linked-list-set-2-inserting-a-node/)
+
+- Delete a node
+    - algorithm i used:
+    ```md
+    1. find the node to be deleted
+    2. link the nodes before and after the deleted node
+    3. check if the head is shifted (if deleted node is first one)
+    ```
+
+    - [delete the first occurrence of data](https://www.geeksforgeeks.org/linked-list-set-3-deleting-node/)
+    - [Delete a Linked List node at a given position](https://www.geeksforgeeks.org/delete-a-linked-list-node-at-a-given-position/)
+
 ### Resources used
 
 - [GFG](https://www.geeksforgeeks.org/linked-list-set-1-introduction/) - [from](https://www.geeksforgeeks.org/data-structures/linked-list/)
 - [javaTpoint](https://www.javatpoint.com/singly-linked-list)
 
+---
+
+- [LeetCode](https://leetcode.com/tag/linked-list/)
+
+
 ### Futher Reading
 
+- [github repo w some common programs in cpp?](https://github.com/whoparthgarg/Data-Structures-and-Algorithms/tree/main/10.%20Linked%20List)
+---
 - https://realpython.com/linked-lists-python/
 - https://realpython.com/python-data-structures/
 - https://www.tutorialspoint.com/python_data_structure/python_linked_lists.htm

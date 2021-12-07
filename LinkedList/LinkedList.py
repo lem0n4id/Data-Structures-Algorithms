@@ -125,6 +125,63 @@ class LinkedList:
         # 6. Change the next of last node
         last.next = new_node
 
+    def deleteNode(self, k:int):
+        
+        # Store head node
+        temp = self.head
+        prev = None
+
+        # If its 1st node
+        if k==1:
+            self.head=self.head.next
+            return
+        
+        # set temp at xth node to be deleted
+        for i in range(1,k):
+            prev=temp
+            temp=temp.next
+        try:
+            prev.next=temp.next
+            return
+        except AttributeError:
+            print(f"{k}th node doesn't exist")
+            exit()
+
+    
+    def deleteFirstOccurNode(self, key:int):
+        '''
+        Given a reference to the head of a list and a key,
+        delete the first occurrence of key in linked list
+        '''
+
+        # Store head node
+        temp = self.head
+
+        # If head node itself holds the key to be deleted
+        if (temp is not None):
+            if (temp.data == key):
+                self.head = temp.next
+                temp = None
+                return
+
+        # Search for the key to be deleted, keep track of the
+        # previous node as we need to change 'prev.next' 
+        # to link both previous and the node after the node that needs to be deleted
+        while(temp is not None):
+            if temp.data == key:
+                break
+            prev = temp
+            temp = temp.next
+
+        # if key was not present in linked list
+        if(temp == None):
+            return
+
+        # Unlink the node from linked list
+        prev.next = temp.next
+
+        temp = None
+
 
 # Code execution starts here
 if __name__ == '__main__':
@@ -150,14 +207,14 @@ if __name__ == '__main__':
     # print()
 
     # Insertion after a given node
-    print(llist)
-    llist.insertAfter(second, 5)
-    print()  # to space
-    print('Inserting 5 after 2')
-    print()
-    print(llist)
+    # print(llist)
+    # llist.insertAfter(second, 5)
+    # print()  # to space
+    # print('Inserting 5 after 2')
+    # print()
+    # print(llist)
 
-    print("="*75)
+    # print("="*75)
 
     # Appending in the end
     print(llist)
@@ -165,4 +222,16 @@ if __name__ == '__main__':
     print()  # to space
     print('Appending 5')
     print()
+    print(llist)
+
+    # print("="*75)
+
+    # print('deleting 1st node')
+    # llist.deleteNode(1)
+    # print(llist)
+
+    print("="*75)
+
+    print('deleting First occurrence of 1')
+    llist.deleteFirstOccurNode(1)
     print(llist)
