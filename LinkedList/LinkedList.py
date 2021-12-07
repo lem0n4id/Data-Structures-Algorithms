@@ -224,14 +224,14 @@ if __name__ == '__main__':
     print()
     print(llist)
 
-    # print("="*75)
-
-    # print('deleting 1st node')
-    # llist.deleteNode(1)
-    # print(llist)
-
     print("="*75)
 
-    print('deleting First occurrence of 1')
-    llist.deleteFirstOccurNode(1)
+    print('deleting 3rd node')
+    llist.deleteNode(3)
     print(llist)
+
+    # print("="*75)
+
+    # print('deleting First occurrence of 1')
+    # llist.deleteFirstOccurNode(1)
+    # print(llist)
